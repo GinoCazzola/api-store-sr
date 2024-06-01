@@ -49,3 +49,27 @@ export const createProduct = async (req, res) => {
 
 
 }
+
+export const getProducts = async (rq, res) => {
+    try {
+        const products = await Products.find()
+
+        res.json({
+            ok: true,
+            products
+
+
+        })
+
+
+
+    }catch (error) {
+            console.log("Ha habido un error al obtener el producto.")
+            res.status(500).json ({
+                ok: false,
+                msg: "Ha habido un error con el sv"
+            })
+
+    }
+
+}
