@@ -15,4 +15,5 @@ const storage = multer.diskStorage({
 
 
 const uploead = multer({ storage })
+
 export default uploead;

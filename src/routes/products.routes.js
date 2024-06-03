@@ -6,7 +6,7 @@ const route = express.Router()
 
 route
 .post("/", upload.single("image"), createProduct)
-.get("/",getProducts)
+.get("/", getProducts)
 
 
 export default route;
