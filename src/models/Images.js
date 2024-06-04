@@ -9,11 +9,7 @@ const ImageSchema = new Schema({
     img: {
         data: Buffer,
         contentType: String
-
-
     }
-
-
 })
 
 export const Images = model("Images", ImageSchema)
