@@ -5,12 +5,12 @@ export const createCart = async (req, res) => {
         const newCart = await Cart.create(req.body)
         
         const cart = await Cart.findById(newCart._id)
-                                .populate({
-                                    path: "items",
-                                    populate: {
-                                        path: "product"
-                                    }
-                                })
+        .populate({
+            path: "items",
+            populate: {
+            path: "product"
+            }
+            })
 
         res.json({
             ok: true,
