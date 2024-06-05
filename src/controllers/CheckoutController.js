@@ -1,24 +1,24 @@
-import { MercadoPagoConfig, Preference } from 'mercadopago';
+import mercadopago from 'mercadopago';
 
 export const createCheckoutPreference = async (req, res) => {
-    const {body} = req;
+    const { items } = req.body;
     try {
-        const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN });
-        const preference = new Preference(client);
+        mercadopago.configure({
+            access_token: process.env.MP_ACCESS_TOKEN
+        });
 
-        
-        const response = await preference.create({body})
+        const preference = {
+            items: items,
+        };
+
+        const response = await mercadopago.preferences.create(preference);
+
         res.json({
-
             ok: true,
-            preferenceId: response.id
-            
-        })
-       
-        res.json(response)
-      
+            preferenceId: response.body.id
+        });
     } catch (error) {
-        console.log(error)
-        res.status(500).send("Error con el servidor")
+        console.log(error);
+        res.status(500).send("Error con el servidor");
     }
 }
