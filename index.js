@@ -20,7 +20,7 @@ const api = async () => {
     server.use(express.json())
     server.use(cors())
     
-    server.use('/public', express.static(`./temp/imgs`))
+    server.use('/public', express.static(`/temp/imgs`))
     server.use("/images", imagesRoutes)
     server.use("/api/products", productsRoutes)
     server.use("/api/messages", messagesRoutes)
