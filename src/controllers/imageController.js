@@ -7,7 +7,7 @@ export const getImage = async (req, res) => {
 
     try {
 
-//trabajamos con las imgs
+
         const image = await Images.findById(idImage)
         console.log (image)
         const imgBuffer = Buffer.from(image.img.data)
