@@ -147,7 +147,7 @@ export const editProduct = async (req, res) => {
         res.json({
             ok: true,
             product: productUpdated,
-            msg: "El producto se actualizò correctamente."
+            msg: "El producto se actualizó correctamente."
         })
     } catch (error) {
         console.log("Ha habido un error al editar el producto.")
